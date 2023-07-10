@@ -59,10 +59,11 @@ def download():
 
                 # if img_extension.startswith(extensions):
                 try:
-                    # Random interval between requests
-                    req_interval = random.choice(list(range(1, 16)))
-                    print("Request interval:", req_interval, "Sec")
-                    time.sleep(req_interval)
+                    if str(link).startswith("https://"):
+                        # Random interval between requests
+                        req_interval = random.choice(list(range(1, 16)))
+                        print("Request interval:", req_interval, "Sec")
+                        time.sleep(req_interval)
 
                     get_img = requests.get(img_link, stream=True, headers=headers)
 
